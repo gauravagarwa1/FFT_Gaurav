@@ -1,146 +1,106 @@
+
 <html>
     <head>
-       <title> </title>
-       <style>
-           *{
-            margin: 0%;
-            padding: 0%;
-            box-sizing: border-box;
-           }
-            div{
-                background-color: rgb(227, 69, 69); 
-            }
-
-            h1{
-                text-align:center;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                font-family:serif;
-            }
-           
-            ul{
-                display: flex; 
-                justify-content: center;
-                gap: 40px;
-                list-style-type: none;
-                padding-bottom:  10px;
-                padding-top: 15px;
-
-            }
-            
-            ul li a {
-            text-decoration: none;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-        }
-
-        ul li a:hover {
-            color: rgb(37, 0, 203);
-        }
-
-            .hero{
-                background-color: rgb(138, 220, 220);
-                height: 900px;
-                width: 100 px;
-            }
-            .head{
-                color:rgb(38, 38, 210);
-                padding-top: 10px;
-
-            }
-            p{
-                color: rgb(13, 12, 13);
-                text-align: center;
-                font-family: Arial, sans-serif;
-                line-height: 1.5;
-            }       
-            .about{
-                background-color: rgb(250, 235, 215);
-                height: 900px;
-                width: 100 px;
-            }
-            .qual {
-            background-color: rgb(250, 135, 215);
-            height: 900px;
-            width: 100 px;
-        }
-
-            .skill {
-            background-color: bisque;
-            height: 900px;
-            width: 100 px;
-        }
-            .project {
-            background-color: rgb(81, 81, 219);
-            height: 900px;
-            width: 100 px;
-        }
-            .p-line{
-                color: white;
-            }
-
-        </style>
+        <title>My Resume</title>
     </head>
-    <body>
-        <div >
-        <h1> Gaurav Portfolio</h1>
+    <body style="border:2px solid black;">
+        <h1 style="text-align: center;">
+            <u>Resume</u>
+        </h1>
+        <p><b>Name:</b> Gaurav Agarwal</p> 
+        <p><b>Email:</b> <span style="color: blue;">gaurav05gopi@gmail.com</span></p>
+        <p><b>Phone:</b> +9155552558</p>
+        <hr>
+
+        <!-- OBJECTIVE -->
+        <h2><u>Objective:-</u></h2>
+        <p>Seeking an opportunity to start my professional journey in a reputable organization where I can contribute my dedication and creativity towards achieving organizational goals.</p>
+        <hr>
+
+        <h2><u>Qualifications:-</u></h2>
+        <table border="1px" style="border-collapse:collapse; width: 100%; text-align:center;height: 200px;">
+            <thead style="border: 1px;">
+                <tr style="border: 1px;">
+                    <th>Sl No.</th>
+                    <th>Clg name</th>
+                    <th>Course</th>
+                    <th>Marks</th>
+                    <th>Percentage</th>
+                    <th>Year of Pass</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>BMBB Commerce College</td>
+                    <td>12th</td>
+                    <td>294</td>
+                    <td>60%</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Guahati University</td>
+                    <td>BCA</td>
+                    <td>--</td>
+                    <td>70%</td>
+                    <td>2025</td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+        <h2><u>Skills:-</u></h2>
         <ul>
-            <li><a href="#hero-link">Home</a></li>
-            <li><a href="#about-link">About</a></li>
-            <li><a href="#qual-link">Qualification</a></li>
-            <li><a href="#skill-link">Skills</a></li>
-            <li><a href="#project-link">Project</a></li>
-        </ul>
-        </div>
-
-        <!-- HOME SECTION -->
-        <div class="hero" id="hero-link">
-            <h1 class="head">Home Section</h1>
-            <p class="line"> 
-            Welcome to my portfolio. I am a passionate learner interested in
-            technology, software development and creating useful digital
-            solutions. I am continuously improving my programming and
-            problem-solving skills.
-        </p>
-        </div>
-
-        <!-- ABOUT SECTION -->
-         <div class="about" id="about-link">
-            <h1>About the page</h1>
-            <p> 
-            I am currently pursuing my MCA and developing my knowledge in
-            programming, web development and software engineering. I enjoy
-            learning new technologies and working on projects that solve
-            real-world problems.</p>
-         </div>
-
-         <!-- Qualification Section -->
-          <div class="qual" id="qual-link">
-            <h1>About the Qualification</h1>
-            <p>
-             I have completed my Bachelor's degree in Computer Applications
-            and am currently pursuing my Master of Computer Applications.
-            Along with academics, I am focusing on improving my technical
-            skills and preparing myself for opportunities in the IT industry.
-            </p>
-          </div>
-
-          <!-- Skills Section -->
-          <div class="skill" id="skill-link">
-            <h1>About the Skill</h1>
-            <p> HTML, CSS, Java, C++, Data Structures and Algorithms,
-            UI/UX Design, Figma and web development.
-            I am continuously learning and improving my technical skills.
-            </p>
-          </div>
-
-          <!-- Project Section -->
-          <div class="project" id="project-link">
-            <h1 class="p-line">About the Project</h1>
-            <p class="p-line"> I am working on different projects to improve my practical
-            knowledge. My projects include web development, UI/UX design
-            concepts and technology-based solutions for real-world problems.
-            </p>
-          </div>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li> 
+            <li>OPPs Programming</li>
+            <li>Ms Office</li>
+            <li>IDEs</li>
+        </ul> <hr>
+        <h2><u>Projects:-</u></h2>
+        <p><b>Face Recognition Attendance System</b> <br>
+• This approach enhances accuracy, reduces manual effort, and enhances security. <br>
+• Python programming language, OpenCV for image processing, face recognition library for face
+recognition, and CSV/JSON for data management. <br><br>
+<b>Website Application.</b> <br>
+• Designed and developed a responsive web application using HTML and CSS. <br>
+• Implemented clean and structured code to create visually appealing layouts. <br>
+• Applied styling techniques to improve user experience and navigation flow.</p>
+        <hr>
+        <h2><u>Certificates</u></h2>
+        <p> Certificated in Young Industry Enthusiast Capital Markets,Infosys</p>
+        <hr>
+        <h2><u>Achievements</u></h2>
+        <p> Won First Prize in Innovation idea Competition Organized by Kc Das Commerce College in
+collaborated with INSTITUTION’S INNOVATION COUNCIL in August 2024. <br>
+• Won 1st position in Hindi Easy Competition in Class 10th. <br>
+• Participated in Smart India Hackathon in October 2024. <br>
+• Participate in National Workshop on Artificial Intelligence: Education and Healthcare Perspective
+organised by The Department of Computer Science, Kc Das Commerce College in collaboration
+with Gratia Technology Pvt. Ltd. on May 2024. <br>
+• Participated in Startup Manthan 3.0 The Assam Chapter Conducted by Placement and Career
+Counselling Cell in collaboration with Assam Startup-The Nest and IIM-CALCUTTA Innovation
+Park. <br>
+• Received various winning certificates in sports and literary activities for quiz, extempore, carom
+during sports in school and college.</p>
+        <hr>
+        <h2><u>Work Experience</u></h2>
+        <p>I gained over 1.5 years of experience in accounting under a Chartered Accountant and actively con
+tributed to managing my family business, which enhanced my understanding of business operations
+and financial management.</p>
+        <hr>
+          <h2><u>Hobbies:-</u></h2>
+        <ul>
+            <li>Travelling</li>
+            <li>Singing</li>
+            <li>Dancing</li>
+            <li>Reading</li> 
+            <li>Poem Writing</li>
+        </ul> <hr>
+        <p>Date:<u>29/08/2026</u></p>
+        <p>Signature: <u>Gaurav Agarwal</u></p>
+        <p>Place: <u>Benglore</u></p>
     </body>
 </html>
