@@ -1,0 +1,106 @@
+
+<html>
+<head>
+    <title>Transition & Animation</title>
+    <style>
+        button{
+            margin-left: 150px;
+            height: 50px;
+            width: 50px;
+            background:red;
+            border: none;
+            border-radius: 15px;
+            transition: 1s;
+        }
+        button:hover{
+            background:green;
+            transform: scale(1.5);
+            
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background:blue;
+            /* animation-name:sheru;
+            animation-delay: 1s;
+            animation-timing-function: ease;
+            animation-duration: 2s;
+            animation-iteration-count: infinite; */ 
+            animation: sheru 5s ease alternate infinite;
+        }
+        .load{
+            width:100px;
+            height:100px;
+            border: 5px solid red;
+            border-radius: 50%;
+            border-top:5px solid blue;
+            animation: Aditi 1s linear infinite;
+        }
+        .gg{
+            width: 0px;
+            height: 0px;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid red; 
+            animation: okk 2s linear infinite alternate;
+        }
+        .react{
+            width: 300px;
+            height: 100px;
+            border: 5px solid purple;
+            border-radius: 50%;
+            border-top: 5px solid yellow;
+            animation: reac 0.5ms linear infinite;
+        }
+        .slide{
+            width: 100px;
+            height: 100px;
+            background: green;
+            animation: slide 2s ease infinite alternate;
+        }
+
+        @keyframes slide{
+            to{
+                transform: translateX(300px);
+            }
+        }
+
+
+        @keyframes  reac{
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes okk {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes Aditi {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes sheru {
+            to{
+                transform: scale(0);
+            }
+            from{
+                transform:scale(300px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Transition & Animation</h1>
+    <button>Action</button><br><br>
+    <div class="box"></div>
+    <br><br>
+    <div class="load"></div>
+    <br><br>
+    <div class="gg"></div><br><br>
+    <div class="react"></div> <br><br>
+    <div class="slide"></div>
+</body>
+</html>
