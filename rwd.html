@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Function in js</h1>
+    <script>
+        //normal func
+        //global
+        //var a=10;
+        //var b=20;
+        function Sum(a,b){
+            //local
+            //var a=20;
+            //var b=20;
+            var sum=a+b;
+
+            //document.write("Sum of a and b:"+(a+b));
+            document.write(" the sum is :"+sum);
+        };
+         Sum(10,20);
+        //Sum();
+        //Arrow func
+        let Sub=(a,b)=>{
+         var Sub=a-b;
+          document.write(" the sub is :"+Sub);
+        };
+        Sub(10,20)
+    </script>
+</body>
+</html>
