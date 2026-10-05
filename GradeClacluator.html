@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Student Result Dashboard</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-image: url(./QmaFcLEqtmJ9bWoYx8sYYiLPuSkT2reenL6oJmsyEjh3Zf.avif);
+    }
+
+    h1{
+        text-align: center;
+        padding-top: 15px;
+        background-color: rgb(55, 159, 190);
+    }
+
+    form {
+            border: 1px solid black;
+            width: 600px;
+            margin-left: 400px;
+            height: 700px;
+            background-color: rgb(135, 190, 222);
+            border-radius: 20px;
+            box-shadow: 4px 8px 10px black;
+            padding: 25px;
+        }
+
+     label{
+            display: inline-block;
+            width: 180px;
+            color: #444;
+            font-weight: bold;
+        }
+        input{
+            padding: 8px;
+            width: 200px;
+            border: 1px solid gray;
+            border-radius: 4px;
+        }
+        button{
+            padding: 10px 25px;
+            margin-top: 10px;
+            margin-left: 150px;
+            background-color: #4b6584;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            
+        }
+        button:hover {
+            background-color: #34495e;
+            transform: scale(1.05);
+        }  
+        #para {
+        margin-top: 25px;
+        padding: 15px;
+        background-color: #eef2f5;
+        border-left: 4px solid #4b6584;
+
+        animation: fade 1s ease;
+        }
+
+        #para h1 {
+        text-align: left;
+        font-size: 22px;
+        }
+
+</style>
+<body>
+    <!-- HTML Form -->
+     <h1 >Interactive Student Result Dashboard</h1>
+    <form>
+        
+        
+        <label >Student Name</label>
+        <input type="text" name="n1" id="i1"><br><br>
+
+        <label >Student Reg:</label>
+        <input type="number" name="n2" id="i2"><br><br>
+        
+        <label >HTML Marks:</label>
+        <input type="number" name="n3" id="i3"><br><br>
+        
+        <label >CSS Marks</label>
+        <input type="number" name="n4" id="i4"><br><br>
+        
+        <label >JS Marks</label>
+        <input type="number" name="n5" id="i5"><br><br>
+        
+        <button  onclick="Check()" type="button">Result</button> 
+        
+        <button onclick="Reset()" type="button">Reset</button>
+        <p id="para"></p>
+    </form>
+
+    <!-- Java Script -->
+    <script>
+        function Check(){
+            let n1= document.getElementById("i1").value;
+            let n2= document.getElementById("i2").value;
+            let n3= Number(document.getElementById("i3").value);
+            let n4= Number(document.getElementById("i4").value);
+            let n5= Number(document.getElementById("i5").value);
+            let total = n3+n4+n5;
+            let avg = total/3;
+            let percentage = (total/300)*100;
+            let grade;
+            if(avg>=80){
+                grade="A";
+            }else if(avg>=60){
+                grade="B";
+            }else if(avg>=40){
+                grade="C";
+            }else if(avg<40){
+                grade="D";
+            }else{
+                grade="Absent";
+            }
+
+            let status;
+            if(avg>=40){
+                status="Pass";
+            }else{
+                status="Fail";
+            }
+
+
+            document.getElementById("para").innerHTML=
+                "<h1>Student Details</h1>"+"<br>"+
+                "Student Name:"+n1+"<br>"+
+                "Student Reg:"+n2+"<br>"+
+                "HTML Marks:"+n3+"<br>"+
+                "CSS Marks:"+n4+"<br>"+
+                "Js Marks:"+n5+"<br>"+
+                "Total Marks:"+total+"<br>"+
+                "Avgrage:"+avg+"<br>"+
+                "Percentage:"+percentage+"<br>"+
+                "Grade:"+grade+"<br>"+
+                "Status:"+status+"<br>"
+        };
+
+         function Reset() {
+
+            document.getElementById("i1").value = "";
+            document.getElementById("i2").value = "";
+            document.getElementById("i3").value = "";
+            document.getElementById("i4").value = "";
+            document.getElementById("i5").value = "";
+
+            document.getElementById("para").innerHTML = "";
+
+        }
+
+    </script>
+</body>
+</html>
