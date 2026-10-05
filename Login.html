@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>DOM Tutorial</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>Login Form</h1>
+        <!-- <h1 id="head">DOM Tutorial</h1> -->
+        <!-- <button onclick="Btn()">Click me</button> -->
+        <form>
+            <label>Username:</label>
+            <input type="text" name="username" id="username"><br><br>
+            <label>Password:</label>
+            <input type="password" name="password" id="password"><br><br> 
+            <button onclick="Login()" type="button">Login</button>
+            <p id="result"></p>
+        </form>
+        <script>
+            function Login(){
+              let username = document.getElementById("username").value;
+              let password = document.getElementById("password").value;
+              if(username == "admin" && password == 12345){
+                document.getElementById('result').innerHTML = "Login Successful" ;
+                result.style.color="green";
+              } 
+              else {
+                document.getElementById('result').innerHTML = "Invalid username or password" ;
+                result.style.color="red";
+              }
+            };
+           function Btn() {
+             document.getElementById("head").innerHTML = "Hello Shreni!";
+           }; 
+          
+        </script>
+    </body>
+</html>
