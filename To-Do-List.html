@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            margin: 50px auto;
+            background-color: linear-gradient(135deg, #71b7e6, #9b59b6);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+   
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        #task {
+            padding: 10px;
+            width: 65%;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 3px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .edit {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .delete {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        .filter {
+            background-color: #ddd;
+        }
+
+        .clear {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>My To-Do List</h1>
+
+        <input type="text" id="task" placeholder="Enter task">
+
+        <button class="add" onclick="addTask()">Add</button>
+
+        <br><br>
+
+        <button class="filter" onclick="showAll()">All</button>
+
+        <button class="filter" onclick="showPending()">Pending</button>
+
+        <button class="filter" onclick="showCompleted()">Completed</button>
+
+        <p id="count">Total Tasks: 0</p>
+
+        <ul id="taskList"></ul>
+
+        <button class="clear" onclick="clearCompleted()">
+            Clear Completed
+        </button>
+
+    </div>
+
+
+    <script>
+
+        /* Add Task */
+
+        function addTask() {
+
+            var task = document.getElementById("task").value;
+
+            if (task == "") {
+
+                alert("Please enter a task");
+
+                return;
+            }
+
+            var li = document.createElement("li");
+
+            li.innerHTML =
+                "<input type='checkbox' onclick='completeTask(this)'>" +
+                " <span>" + task + "</span>" +
+                " <button class='edit' onclick='editTask(this)'>Edit</button>" +
+                " <button class='delete' onclick='deleteTask(this)'>Delete</button>";
+
+            document.getElementById("taskList").appendChild(li);
+
+            document.getElementById("task").value = "";
+
+            saveData();
+
+            countTasks();
+        }
+
+
+        /* Complete Task */
+
+        function completeTask(box) {
+
+            var li = box.parentElement;
+
+            var text = li.getElementsByTagName("span")[0];
+
+            if (box.checked) {
+
+                text.className = "completed";
+
+            } else {
+
+                text.className = "";
+
+            }
+
+            saveData();
+        }
+
+
+        /* Edit Task */
+
+        function editTask(button) {
+
+            var li = button.parentElement;
+
+            var text = li.getElementsByTagName("span")[0];
+
+            var newTask = prompt("Enter new task", text.innerHTML);
+
+            if (newTask != null && newTask != "") {
+
+                text.innerHTML = newTask;
+
+                saveData();
+            }
+        }
+
+
+        /* Delete Task */
+
+        function deleteTask(button) {
+
+            var li = button.parentElement;
+
+            li.remove();
+
+            saveData();
+
+            countTasks();
+        }
+
+
+        /* Show All */
+
+        function showAll() {
+
+            var tasks = document.getElementById("taskList").children;
+
+            for (var i = 0; i < tasks.length; i++) {
+
+                tasks[i].style.display = "block";
+            }
+        }
+
+
+        /* Show Pending */
+
+        function showPending() {
+
+            var tasks = document.getElementById("taskList").children;
+
+            for (var i = 0; i < tasks.length; i++) {
+
+                var checkbox = tasks[i].getElementsByTagName("input")[0];
+
+                if (checkbox.checked) {
+
+                    tasks[i].style.display = "none";
+
+                } else {
+
+                    tasks[i].style.display = "block";
+                }
+            }
+        }
+
+
+        /* Show Completed */
+
+        function showCompleted() {
+
+            var tasks = document.getElementById("taskList").children;
+
+            for (var i = 0; i < tasks.length; i++) {
+
+                var checkbox = tasks[i].getElementsByTagName("input")[0];
+
+                if (checkbox.checked) {
+
+                    tasks[i].style.display = "block";
+
+                } else {
+
+                    tasks[i].style.display = "none";
+                }
+            }
+        }
+
+
+        /* Count Tasks */
+
+        function countTasks() {
+
+            var tasks = document.getElementById("taskList").children;
+
+            document.getElementById("count").innerHTML =
+                "Total Tasks: " + tasks.length;
+        }
+
+
+        /* Clear Completed */
+
+        function clearCompleted() {
+
+            var tasks = document.getElementById("taskList").children;
+
+            for (var i = tasks.length - 1; i >= 0; i--) {
+
+                var checkbox = tasks[i].getElementsByTagName("input")[0];
+
+                if (checkbox.checked) {
+
+                    tasks[i].remove();
+                }
+            }
+
+            saveData();
+
+            countTasks();
+        }
+
+        /* Local Storage */
+
+        function saveData() {
+
+            var tasks =
+                document.getElementById("taskList").innerHTML;
+
+            localStorage.setItem("tasks", tasks);
+        }
+
+        /* Load Saved Tasks */
+
+        function loadData() {
+
+            var savedTasks = localStorage.getItem("tasks");
+
+            if (savedTasks != null) {
+
+                document.getElementById("taskList").innerHTML =
+                    savedTasks;
+            }
+
+            countTasks();
+        }
+        loadData();
+
+    </script>
+</body>
+</html>
