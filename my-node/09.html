@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Student Result Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("mp9.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #233b3e;
+        }
+        h1 {
+            text-align: center;
+            color: #233b3e;
+            margin-bottom: 25px;
+        }
+
+        .main {
+            width: 650px;
+            margin: auto;
+        }
+
+        .box {
+            background: rgba(79, 130, 174, 0.94);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #233b3e;
+        }
+
+        h2 {
+            color: #212329;
+            margin-top: 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 190px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 230px;
+            padding: 9px;
+            border: 1px solid #233b3e;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #233b3e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        button:hover {
+            background-color: #233b3e;
+        }
+
+        .reset {
+            background-color: #233b3e;
+        }
+
+        .reset:hover {
+            background-color: #233b3e;
+        }
+
+        .performance {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            /* min-width: 130px; */
+            background-color: #e9e9ef;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            color: #233b3e;
+            margin: 5px;
+        }
+
+        .card p {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 8px;
+        }
+
+        #result {
+            background-color: #f5eee6;
+            padding: 15px;
+            border-left: 5px solid #233b3e;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 700px) {
+            .main {
+                width: 95%;
+            }
+            label {
+                width: 100%;
+            }
+            input {
+                width: 95%;
+            }
+            .performance {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Student Result Dashboard</h1>
+    <div class="main">
+        <!-- Student Details -->
+        <div class="box">
+            <h2>Student Details</h2>
+            <label>Student Name:</label>
+            <input type="text" id="name">
+            <br>
+            <label>Registration No.:</label>
+            <input type="text" id="reg">
+            <br>
+            <label>FFT Marks:</label>
+            <input type="number" id="fft">
+            <br>
+            <label>Python Marks:</label>
+            <input type="number" id="py">
+            <br>
+            <label>ADST Marks:</label>
+            <input type="number" id="adst">
+            <br>
+            <label>Maths Marks:</label>
+            <input type="number" id="math">
+            <br><br>
+            <button type="button" onclick="calResult()">
+            Calculate Result</button>
+            <button type="button" class="reset" onclick="resetRes()">
+            Reset Result</button>
+        </div>
+
+        <!-- Performance -->
+        <div class="box">
+           <h2>Performance</h2>
+            <div class="performance">
+                <div class="card">
+                    <h3>Total</h3>
+                    <p id="total">0</p>
+                </div>
+                <div class="card">
+                    <h3>Average</h3>
+                    <p id="average">0</p>
+                </div>
+                <div class="card">
+                    <h3>Percentage</h3>
+                    <p id="percentage">0%</p>
+                </div>
+                <div class="card">
+                    <h3>Grade</h3>
+                    <p id="grade">-</p>
+                </div>
+                <div class="card">
+                    <h3>Status</h3>
+                    <p id="status">-</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Result -->
+        <div class="box">
+            <h2>Student Result</h2>
+            <div id="result">
+                Result will appear here.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calResult() {
+            let name = document.getElementById("name").value;
+            let reg = document.getElementById("reg").value;
+            let fft = Number(document.getElementById("fft").value);
+            let py = Number(document.getElementById("py").value);
+            let adst = Number(document.getElementById("adst").value);
+            let math = Number(document.getElementById("math").value);
+
+            if (name == "" || reg == "") {
+                alert("Please enter student name and registration number.");
+                return;
+            }
+
+            if (
+                document.getElementById("fft").value == "" ||
+                document.getElementById("py").value == "" ||
+                document.getElementById("adst").value == "" ||
+                document.getElementById("math").value == ""
+            )
+       
+            if (
+                fft < 0 || fft > 100 ||
+                py < 0 || py > 100 ||
+                adst < 0 || adst > 100 ||
+                math < 0 || math > 100
+            ) {
+
+                alert("Marks should be between 0 and 100.");
+
+                return;
+
+            }
+
+            let total = fft + py + adst + math;
+
+            // Average
+            let average = total / 4;
+            // Percentage
+            let percentage = (total / 400) * 100;
+            // Grade
+            let grade;
+            if (average >= 80) {
+                grade = "A";
+            }
+            else if (average >= 60) {
+                grade = "B";
+            }
+            else if (average >= 40) {
+                grade = "C";
+            }
+            else {
+                grade = "F";
+            }
+            // Status
+
+            let status;
+
+            if (average >= 40) {
+                status = "Pass";
+            }
+            else {
+                status = "Fail";
+            }
+
+            document.getElementById("total").innerHTML = total;
+            
+            document.getElementById("average").innerHTML = average.toFixed(2);
+            document.getElementById("percentage").innerHTML = percentage.toFixed(2) + "%";
+            document.getElementById("grade").innerHTML = grade;
+            document.getElementById("status").innerHTML = status;
+            document.getElementById("result").innerHTML =
+
+                "Student Name: " + name + "<br>" +
+                "Registration No.: " + reg + "<br>" +
+                "FFT Marks: " + fft + "<br>" +
+                "Python Marks: " + py + "<br>" +
+                "ADST Marks: " + adst + "<br>" +
+                "Maths Marks: " + math + "<br>" +
+                "Total Marks: " + total + "<br>" +
+                "Average: " + average.toFixed(2) + "<br>" +
+                "Percentage: " + percentage.toFixed(2) + "%<br>" +
+                "Grade: " + grade + "<br>" +
+                "Result Status: " + status;
+        }
+
+        function resetRes() {
+            document.getElementById("name").value = "";
+            document.getElementById("reg").value = "";
+            document.getElementById("fft").value = "";
+            document.getElementById("py").value = "";
+            document.getElementById("adst").value = "";
+            document.getElementById("math").value = "";
+            document.getElementById("total").innerHTML = "0";
+            document.getElementById("average").innerHTML = "0";
+            document.getElementById("percentage").innerHTML = "0%";
+            document.getElementById("grade").innerHTML = "-";
+            document.getElementById("status").innerHTML = "-";
+            document.getElementById("result").innerHTML =
+                "Result will appear here.";
+        }
+
+    </script>
+</body>
+</html>
